@@ -1,6 +1,155 @@
-body.design-preview {
-  background: #0D0D1A;
+html {
+  background-color: #0D0D1A;
 }
-#images-container {
+body {
+  background-color: #0D0D1A;
+  font-family: 'Roboto', sans-serif;
+  color: white;
+}
+.fs {
+  min-height: 100vh;
+}
+.fs.aligncenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.__spacing {
+  height: 1em;
+}
+.__spacing._2em {
+  height: 2em;
+}
+.__spacing._3em {
+  height: 3em;
+}
+.__spacing._4em {
+  height: 4em;
+}
+.__spacing._5em {
+  height: 5em;
+}
+.__spacing._6em {
+  height: 6em;
+}
+.next img {
+  height: 125px;
+}
+.text-center {
   text-align: center;
+}
+.title {
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  color: #00FFDD;
+  font-size: 24px;
+}
+.input {
+  display: inline-block;
+  border: 2px solid #00FFDD;
+  position: relative;
+}
+.input input {
+  border: none;
+  background: none;
+  height: 44px;
+  width: 280px;
+  color: #00FFDD;
+  text-align: center;
+  letter-spacing: 2px;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+input::-webkit-input-placeholder {
+  color: #00FFDD !important;
+}
+input:-moz-placeholder { /* Firefox 18- */
+  color: #00FFDD !important;
+}
+input::-moz-placeholder {  /* Firefox 19+ */
+  color: #00FFDD !important;
+}
+input:-ms-input-placeholder {  
+  color: #00FFDD !important;
+}
+button {
+  background-color: #00FFDD;
+  line-height: 1;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  border-radius: 2px;
+  letter-spacing: 2px;
+  font-weight: 700;
+  font-size: 12px;
+  height: 36px;
+  border: none;
+}
+h5 {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 16px;
+}
+#hero {
+  background-image: url('./images/cover-phone.jpg');
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+#hero::after {
+  content: '';
+  display: block;
+  height: 20vh;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: rgba(13,13,26,0);
+  background: -moz-linear-gradient(top, rgba(13,13,26,0) 0%, rgba(13,13,26,1) 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(13,13,26,0)), color-stop(100%, rgba(13,13,26,1)));
+  background: -webkit-linear-gradient(top, rgba(13,13,26,0) 0%, rgba(13,13,26,1) 100%);
+  background: -o-linear-gradient(top, rgba(13,13,26,0) 0%, rgba(13,13,26,1) 100%);
+  background: -ms-linear-gradient(top, rgba(13,13,26,0) 0%, rgba(13,13,26,1) 100%);
+  background: linear-gradient(to bottom, rgba(13,13,26,0) 0%, rgba(13,13,26,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0d0d1a', endColorstr='#0d0d1a', GradientType=0 );
+}
+#features {
+  color: #00FFDD;
+  letter-spacing: .5px;
+}
+.branding, .slogan {
+  text-align: center;
+  line-height: 0;
+  margin: 5px 0;
+}
+.branding img {
+  height: 30px;
+}
+.slogan img {
+  height: 14px;
+}
+.grid-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.grid-container .gridr {
+  width: 50%;
+}
+
+@media screen and (min-width: 599px) {
+  #hero {
+    background-image: url('./images/cover.jpg');
+  }
+  .branding img {
+    height: 40px;
+  }
+  .slogan img {
+    height: 14px;
+  }
+  .grid-container .gridr {
+    width: 25%;
+  }
+  .input input {
+    width: 320px;
+  }
 }
