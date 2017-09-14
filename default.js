@@ -19,7 +19,7 @@ const subscribeSuccess = () => {
   $('.subscribeField').hide()
 }
 const doSubscribe = (data) => {
-  const apiUrl = 'http://localhost:5000/subscribe'
+  const apiUrl = 'https://alfredx.herokuapp.com/subscribe'
   fetch(apiUrl, {
     method: 'POST',
     headers: {
