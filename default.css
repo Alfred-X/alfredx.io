@@ -6,6 +6,10 @@ body {
   font-family: 'Roboto', sans-serif;
   color: white;
 }
+.returnMessage {
+  color: #00FFDD;
+  font-size: 14px;
+}
 .fs {
   min-height: 100vh;
 }

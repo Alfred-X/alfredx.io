@@ -10,33 +10,34 @@ const subscribe = () => {
   !validateEmail(email) && $('.errorMsg').removeClass('d-none')
   validateEmail(email) && ( $('.errorMsg').addClass('d-none') && doSubscribe({name: name, email: email}) )
 }
+const displayError = (errorMsg) => {
+  $('.returnMessage').text(errorMsg).removeClass('d-none')
+}
+const subscribeSuccess = () => {
+  const successMessage = 'Thank you for your subscribe, you\'ll be first to know.'
+  $('.returnMessage').text(successMessage).removeClass('d-none')
+  $('.subscribeField').hide()
+}
 const doSubscribe = (data) => {
-  const apiUrl = 'https://us5.api.mailchimp.com/3.0/lists/3c74ae0db6/members/'
-  const token = 'ac72fc6a76d41ee66a69760e64e180f1-us5'
-  let headers = new Headers({
-    'Authorization': 'Basic '+token,
-    'Content-Type': 'application/json'
-  })
-  const request = new Request(apiUrl, {
+  const apiUrl = 'http://localhost:5000/subscribe'
+  fetch(apiUrl, {
     method: 'POST',
-    mode: 'no-cors',
-    headers: headers,
-    body: JSON.stringify({
-      'email_address': data.email,
-      'status': 'subscribed',
-      'merge_fields': {
-        'FNAME': data.name
-      }
-    })
+    headers: {
+      'Accept': 'application/json, text/plain, */*',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
   })
-
-  fetch(request)
   .then((res) => {
-    console.log(res)
     return res.json()
   })
   .then((data) => {
-    alert(JSON.stringify( data ))
+    if (typeof data === "object") {
+      //Error
+      displayError(data.Message)
+    } else {
+      subscribeSuccess()
+    }
   })
 }
 const validateEmail = (email) => {
